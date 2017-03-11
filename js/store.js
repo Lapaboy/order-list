@@ -1,3 +1,5 @@
+"use strict";
+
 class Store {
     constructor (data) {
         this.state = data;
