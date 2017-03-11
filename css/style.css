@@ -1,0 +1,90 @@
+html, body {
+    height: 90%;
+    background: #edeef0;
+}
+
+.container {
+    width: 60%;
+    height: 90%;
+    min-width: 350px;
+    margin: 5% auto;
+}
+
+.window {
+    width: 70%;
+    height: 100%;
+    min-width: 350px;
+    margin: 0 auto;
+}
+
+.input-field {
+    width: 50%;
+    min-width: 350px;
+    height: 55px;
+    margin-bottom: 10px;
+    border-radius: 2px;
+    border: 1px solid #e5e5e5;
+    background: white;
+}
+
+.input-field::after {
+    content:"";
+    display:block;
+    clear:both;
+}
+
+.input-field label {
+    float: left;
+    height: 70%;
+    margin: 10px;
+    font-family: 'Myriad Pro';
+}
+
+.input-field label input {
+    width: 100px;
+    border: none;
+}
+
+.input-field i {
+    float: left;
+    margin-left: 40px;
+    margin-top: 12px;
+    color: #e1e8ee;
+    cursor: pointer;
+}
+
+.input-field i:hover {
+    color: #6598d3;
+}
+
+.items {
+    width: 100%;
+    padding: 10px 20px;
+    border: 1px solid #e5e5e5;
+    border-radius: 2px;
+    background: white;
+}
+
+.item table {
+    width: 100%;
+    text-align: left;
+    border-collapse: collapse;
+    font-family: 'Myriad Pro';
+    font-size: 1.5rem;
+}
+
+.item table tr {
+    border-top: 1px solid lightgray;
+}
+
+.item table th {
+    padding: 10px 0;
+    font-size: 1.1rem;
+    color: gray;
+    font-weight: normal;
+}
+
+.item table td {
+    padding: 10px 0;
+    font-weight: 700;
+}
