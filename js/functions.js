@@ -1,3 +1,5 @@
+"use strict";
+
 function sortDesc (date1, date2) {
     date1 = date1.checkout_at.split('-');
     date2 = date2.checkout_at.split('-');
