@@ -1,4 +1,36 @@
-"use strict";
+import Orders from './orders.js';
+import '../css/style.css';
+
+var orders;
+
+document.addEventListener("DOMContentLoaded", function () {
+    query()
+        .then( (data) => {
+            data = JSON.parse(data);
+            orders = new Orders(data.orders);
+            orders.sortInitialStateAsc();
+        })
+        .catch ( (error) => {
+            console.error(error);
+        })
+
+        sortButton.attributes.state = "desc";
+        sortButton.addEventListener("click", function () {
+            if (this.attributes.state === "desc") {
+                this.attributes.state = "asc";
+                this.className = "fa fa-sort-asc fa-2x";
+                orders.sortFilteredAsc();
+            } else {
+                this.attributes.state = "desc";
+                this.className = "fa fa-sort-desc fa-2x";
+                orders.sortFilteredDesc();
+            }
+        })
+
+        filterById.addEventListener("change", () => orders.showFilteredOrders() );
+        filterByCity.addEventListener("change", () => orders.showFilteredOrders() );
+})
+
 function query () {
     return new Promise (function (resolve, reject) {
         let xhr = new XMLHttpRequest();
@@ -15,30 +47,5 @@ function query () {
     })
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-    query()
-        .then( (data) => {
-            data = JSON.parse(data);
-            store = new Store(data.orders);
-            addOrders(store.state.sort(sortDesc));
-        })
-        .catch ( (error) => {
-            console.error(error);
-        })
 
-        sortButton.attributes.state = "desc";
-        sortButton.addEventListener("click", function () {
-            if (this.attributes.state === "desc") {
-                this.attributes.state = "asc";
-                this.className = "fa fa-sort-asc fa-2x";
-                addOrders(store.filtered.sort(sortAsc));
-            } else {
-                this.attributes.state = "desc";
-                this.className = "fa fa-sort-desc fa-2x";
-                addOrders(store.filtered.sort(sortDesc));
-            }
-        })
 
-        filterById.addEventListener("change", () => filter() )
-        filterByCity.addEventListener("change", () => filter() )
-})
