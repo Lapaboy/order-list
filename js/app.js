@@ -8,7 +8,7 @@ document.addEventListener("DOMContentLoaded", function () {
         .then( (data) => {
             data = JSON.parse(data);
             orders = new Orders(data.orders);
-            orders.sortInitialStateDesc();
+            orders.sortInitialStateAsc();
         })
         .catch ( (error) => {
             console.error(error);
