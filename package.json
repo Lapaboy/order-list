@@ -1,7 +1,7 @@
 {
   "name": "refactor",
   "version": "1.0.0",
-  "description": "Приложение предназначено для получения заказов с сервера с возможностью их сортировки и фильтрации.",
+  "description": "This application is intended for receiving orders from the server, including their sorting and filtration.",
   "main": "index.js",
   "dependencies": {
     "babel-core": "^6.24.0",
