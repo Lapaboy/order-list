@@ -1,22 +1,19 @@
 #Order-list
+This application is intended for receiving orders from the server, including their sorting and filtration.
 
-Приложение предназначено для получения заказов с сервера с возможностью их сортировки и фильтрации.
-
-###состоит из:
-<code>/js/store.js </code>
-Описывает хранилище полученных данных с сервера, а также данных отфильтрованных на клиенте.
-У объекта хранилища за это отвечают свойства .state и .filtered соответственно.
-
-<code>/js/functions.js </code>
-Включает в себя вспомогательные функции по фильтрации и сортировке:
-    filter() манипулирует исходным состоянием хранилища .state и записывает результат в .filtered
-    sortAsc() и sortDesc() в рамках приложения, как правило, возвращают отсортированное свойство .filtered хранилища.
-
-<code>/js/components/orders.js</code>
-Содержит в себе процедуру отрисовки заказов. На вход принимает отсортированный/отфильтрованный объект данных из хранилища.
-Разметка реализована в строковом виде через innerHTML, так как нет необходимости в манипуляции DOM элементами. Если будет нужна необходимость
-добавить интерактивные действия к заказам, процедуру необходимо переписать должным образом.
-
-<code>/js/app.js</code>
-Содержит в себе процедуру запроса к серверу при инициализации документа, а также инициализирует первоначальное состояние хранилища и управляющих элементов
-(поля и кнопки сортировки и фильтрации).
+###Module  <code>orders.js </code>:
+<b>Properties:</b><br>
+<code>initialState</code> stores a data object received from the server when the application is initialized.<br>
+<code>filtered</code> stores a filtered object.<br>
+<br>
+<b>Methods:</b><br>
+<code>filter</code>records filtered data to filtered property and resets state if data is not filled.<br>
+<code>sortInitialStateDesc</code> sorts and shows initial state of an object in descending order.<br>
+<code>sortInitialStateAsc</code> sorts and shows initial state of an object in ascending order.<br>
+<code>sortFilteredDesc</code> filters and shows data in descending order.<br>
+<code>sortFilteredAsc</code> filters and shows data in ascending order.<br>
+<code>showFilteredOrders</code> shows data without sorting<br>
+<code>addOrders</code> the method draws an object on the form. The object (this.initialState || this.filtered) is taken as an argument.<br>
+<code>formatDate</code> the data format is based on a technical project. The line with the data is taken as an argument.<br>
+<code>sortDesc</code>sorting in descending order.<br>
+<code>sortAsc</code>sorting in ascending order. Both methods are basically used as a callback for the method .sort<br>
